@@ -1,5 +1,9 @@
 rootProject.name = "ModooRPG"
 
+// support
+include(":support:common")
+project(":support:common").projectDir = file("support/common")
+
 // user-service
 include(":user:domain")
 project(":user:domain").projectDir = file("user/domain")
