@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  shutdown: graceful
+spring:
+  profiles:
+    active: local
+    include:
+      - application
+      - jpa
+      - redis
+swagger:
+  server:
+    url: ${SERVER_URL:http://localhost:8080}
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  docker:
+    compose:
+      file: classpath:compose-local.yaml
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+---

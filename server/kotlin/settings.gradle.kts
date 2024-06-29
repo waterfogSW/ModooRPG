@@ -11,8 +11,8 @@ project(":user:domain").projectDir = file("user/domain")
 include(":user:application")
 project(":user:application").projectDir = file("user/application")
 
-include(":user:infrastructure")
-project(":user:infrastructure").projectDir = file("user/infrastructure")
+include(":user:infrastructure:jpa")
+project(":user:infrastructure:jpa").projectDir = file("user/infrastructure/jpa")
 
-include(":user:bootstrap")
-project(":user:bootstrap").projectDir = file("user/bootstrap")
+include(":user:bootstrap:api")
+project(":user:bootstrap:api").projectDir = file("user/bootstrap/api")

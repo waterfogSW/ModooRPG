@@ -1,0 +1,15 @@
+version: '3.8'
+name: modoorpg-user-service
+services:
+  mysql:
+    image: mysql:8.0.33
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: modoorpg-user
+      MYSQL_ROOT_PASSWORD: secret
+      TZ: Asia/Seoul
+    ports:
+      - "3306:3306"
+volumes:
+  mysql-data:

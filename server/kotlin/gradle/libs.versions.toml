@@ -4,7 +4,7 @@ java = "21"
 # Libraries
 
 ## Kotlin
-kotlin = "1.9.23"
+kotlin = "1.9.22"
 kotlin-logging = "5.1.0"
 kotlin-coroutines = "1.8.0"
 
