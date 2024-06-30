@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package modoorpg.common;
+
+// 공통 응답 메시지
+message Response {
+  bool success = 1;
+  string message = 2;
+  oneof result {
+    bytes success_result = 3;  // 각 서비스에서 필요한 데이터를 직렬화하여 저장
+    ErrorResult error_result = 4;
+  }
+}
+
+// 오류 결과
+message ErrorResult {
+  int32 error_code = 1;  // 각 서비스에서 정의한 에러 코드
+  string error_message = 2;
+}
+
+// 공통 에러 코드 (서비스 간 공유되는 에러)
+enum CommonErrorCode {
+  UNKNOWN_ERROR = 0;
+  INVALID_INPUT = 1;
+  UNAUTHORIZED = 2;
+  NOT_FOUND = 3;
+}
