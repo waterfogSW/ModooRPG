@@ -1,4 +1,4 @@
-package com.waterfogsw.modoorpg.user.domain.entity
+package com.waterfogsw.modoorpg.user.domain.account.vo
 
 @JvmInline
 value class Password(private val value: String) {
@@ -19,6 +19,4 @@ value class Password(private val value: String) {
     }
 
     fun hash(): HashedPassword = HashedPassword.hash(this)
-
-    override fun toString(): String = value
 }

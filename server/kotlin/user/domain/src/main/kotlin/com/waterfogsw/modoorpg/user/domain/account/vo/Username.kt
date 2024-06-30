@@ -1,4 +1,4 @@
-package com.waterfogsw.modoorpg.user.domain.entity
+package com.waterfogsw.modoorpg.user.domain.account.vo
 
 @JvmInline
 value class Username(private val value: String) {

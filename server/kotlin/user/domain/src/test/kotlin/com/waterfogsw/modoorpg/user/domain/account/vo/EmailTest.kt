@@ -1,4 +1,4 @@
-package com.waterfogsw.modoorpg.user.domain.entity
+package com.waterfogsw.modoorpg.user.domain.account.vo
 
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.annotation.DisplayName
