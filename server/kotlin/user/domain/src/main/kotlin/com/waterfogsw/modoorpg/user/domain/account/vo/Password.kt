@@ -19,4 +19,6 @@ value class Password(private val value: String) {
     }
 
     fun hash(): HashedPassword = HashedPassword.hash(this)
+
+    override fun toString() = value
 }
