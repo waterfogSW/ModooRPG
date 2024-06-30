@@ -5,7 +5,7 @@ value class Email(private val value: String) {
 
     companion object {
 
-        private const val EMAIL_REGEX = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z]{2,6}$"
+        private const val EMAIL_REGEX = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$"
         private const val MAX_LOCAL_PART_LENGTH = 64
         private const val MAX_DOMAIN_LENGTH = 255
         private const val INVALID_EMAIL_MESSAGE = "잘못된 이메일 형식입니다."
