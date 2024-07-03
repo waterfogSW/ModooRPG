@@ -3,14 +3,35 @@ name = "api_gateway"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "api_gateway"
+path = "src/main.rs"
+
 [dependencies]
-tonic = "0.11.0"
-prost = "0.12.6"
-tokio = { version = "1.0", features = ["full"] }
-rdkafka = { version = "0.36.2", features = ["cmake-build"] }
-futures = "0.3"
-warp = "0.3"
-bytes = "1.0"
+# gRPC 및 Protocol Buffers 관련
+tonic = "0.11.0"        # gRPC 프레임워크
+prost = "0.12.6"        # Protocol Buffers 구현
+
+# WebSocket 관련
+tokio-tungstenite = "0.23.1"  # WebSocket 라이브러리
+
+# Kafka 관련
+rdkafka = { version = "0.36.2", features = ["cmake-build"] }  # Apache Kafka 클라이언트
+
+# 비동기 프로그래밍 관련
+tokio = { version = "1.28", features = ["full"] }  # 비동기 런타임
+futures-util = "0.3"    # Future 관련 유틸리티
+
+# 데이터 처리 관련
+bytes = "1.4"           # 바이트 처리 유틸리티
+
+# 설정 관리 관련
+config = { version = "0.14.0", features = ["yaml"] }
+serde = { version = "1.0", features = ["derive"] }  # 직렬화/역직렬화 프레임워크
+
+# 로깅 관련
+tracing = "0.1"         # 로깅 및 계측 프레임워크
+tracing-subscriber = "0.3"  # tracing 이벤트 구독자
 
 [build-dependencies]
 tonic-build = "0.11.0"
