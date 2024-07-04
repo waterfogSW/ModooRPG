@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package modoorpg.gateway;
+
+import "external/common.proto";
+import "external/user.proto";
+
+service GatewayService {
+  // User 서비스 관련 RPC
+  rpc RegisterUser(modoorpg.external.user.RegisterRequest) returns (modoorpg.common.Response);
+}
