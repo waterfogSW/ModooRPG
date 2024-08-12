@@ -4,32 +4,37 @@ package modoorpg.external.user;
 
 import "external/common.proto";
 
-// 회원 가입 요청
-message RegisterRequest {
-  string username = 1;
-  string email = 2;
-  string password = 3;
+message UserRequest {
+  oneof request {
+    RegisterRequest registerRequest = 1;
+  }
+
+  message RegisterRequest {
+    string username = 1;
+    string email = 2;
+    string password = 3;
+  }
 }
 
-// 회원 가입 성공 응답 데이터
-message RegisterSuccessData {
-  string user_id = 1;
-  int64 created_at = 2;  // Unix timestamp
+message UserReply {
+  oneof reply {
+    RegisterReply registerReply = 1;
+  }
+
+  message RegisterReply {
+    ResultCode resultCode = 1;
+    string resultMessage = 2;
+  }
 }
 
-// 회원 가입 관련 에러 코드
-enum RegisterErrorCode {
-  // 10000번대는 UserService 전용으로 가정
-  REGISTER_ERROR_UNSPECIFIED = 0;
-  USERNAME_ALREADY_EXISTS = 10001;
-  EMAIL_ALREADY_EXISTS = 10002;
+enum ResultCode {
+  SUCCESS = 0;
+  FAILED = 1;
+
   INVALID_USERNAME = 10003;
   INVALID_EMAIL = 10004;
   INVALID_PASSWORD = 10005;
-}
 
-
-// 외부 유저 서비스 정의
-service ExternalUserService {
-  rpc Register(RegisterRequest) returns (modoorpg.common.Response);
+  DUPLICATED_USERNAME = 10006;
+  DUPLICATED_EMAIL = 10007;
 }
